@@ -9,7 +9,7 @@
     "inline-footer": "node scripts/inline-footer.js",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "cp CNAME dist/ && gh-pages -d dist"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
