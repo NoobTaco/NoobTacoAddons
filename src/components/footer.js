@@ -50,6 +50,7 @@ export function createFooter({ layout = 'full', currentPage = 'home' } = {}) {
         // Full layout with navigation
         const homeLinkClass = currentPage === 'home' ? 'text-blue-400 hover:text-blue-300' : 'text-slate-400 hover:text-white';
         const pveLinkClass = currentPage === 'pve' ? 'text-blue-400 hover:text-blue-300' : 'text-slate-400 hover:text-white';
+        const noobtacoLinkClass = currentPage === 'noobtacoui' ? 'text-blue-400 hover:text-blue-300' : 'text-slate-400 hover:text-white';
 
         return baseFooter + `
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -73,11 +74,11 @@ export function createFooter({ layout = 'full', currentPage = 'home' } = {}) {
                         <ul class="space-y-2">
                             <li><a href="index.html" class="${homeLinkClass} transition-colors duration-200">Home</a></li>
                             <li><a href="pve.html" class="${pveLinkClass} transition-colors duration-200">PvE Content</a></li>
+                            <li><a href="noobtacoui.html" class="${noobtacoLinkClass} transition-colors duration-200">NoobTacoUI</a></li>
                             <li><a href="https://github.com/NoobTaco/NoobTacoAddons/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200">Changelog</a></li>
                             <li><span class="text-slate-500">UI & Quality of Life (Coming Soon)</span></li>
                             <li><span class="text-slate-500">Leveling & New Players (Coming Soon)</span></li>
                             <li><span class="text-slate-500">Professions & Economy (Coming Soon)</span></li>
-                            <li><span class="text-slate-500">NoobTacoUI (Coming Soon)</span></li>
                         </ul>
                     </div>
 

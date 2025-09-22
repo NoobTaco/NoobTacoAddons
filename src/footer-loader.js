@@ -10,8 +10,9 @@ function initComponents() {
     if (footerPlaceholder) {
         // Determine layout and current page from the page
         const isPvePage = window.location.pathname.includes('pve.html');
-        const layout = isPvePage ? 'full' : 'simple';
-        const currentPage = isPvePage ? 'pve' : 'home';
+        const isNoobtacoPage = window.location.pathname.includes('noobtacoui.html');
+        const layout = isPvePage || isNoobtacoPage ? 'full' : 'simple';
+        const currentPage = isPvePage ? 'pve' : isNoobtacoPage ? 'noobtacoui' : 'home';
 
         footerPlaceholder.innerHTML = createFooter({ layout, currentPage });
     }
@@ -20,7 +21,8 @@ function initComponents() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
         const isPvePage = window.location.pathname.includes('pve.html');
-        const currentPage = isPvePage ? 'pve' : 'home';
+        const isNoobtacoPage = window.location.pathname.includes('noobtacoui.html');
+        const currentPage = isPvePage ? 'pve' : isNoobtacoPage ? 'noobtacoui' : 'home';
 
         headerPlaceholder.innerHTML = createNavHeader({ currentPage });
     }
