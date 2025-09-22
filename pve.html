@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Essential World of Warcraft addons for PvE content including raids, mythic+, and delves">
+    <meta name="author" content="NoobTaco Addons">
+    <title>PvE Addons Guide - NoobTaco Addons</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .nav-link.active {
+            background-color: rgb(226 232 240);
+            color: rgb(30 41 59);
+            font-weight: 600;
+        }
+        
+        .dark .nav-link.active {
+            background-color: rgb(51 65 85);
+            color: rgb(241 245 249);
+        }
+        
+        .addon-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: all 0.2s ease-in-out;
+            border: 1px solid rgb(226 232 240);
+        }
+        
+        .dark .addon-card {
+            background-color: rgb(30 41 59);
+            border-color: rgb(51 65 85);
+        }
+        
+        .addon-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        
+        .dark .addon-card:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 50;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: rgb(226 232 240);
+            color: rgb(30 41 59);
+            transition: background-color 0.2s ease-in-out;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .dark .theme-toggle {
+            background-color: rgb(51 65 85);
+            color: rgb(226 232 240);
+        }
+        
+        .theme-toggle:hover {
+            background-color: rgb(203 213 225);
+        }
+        
+        .dark .theme-toggle:hover {
+            background-color: rgb(71 85 105);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700 dark:bg-slate-900 dark:text-slate-300 transition-colors duration-200">
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path class="sun" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            <path class="moon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" style="display: none;"></path>
+        </svg>
+    </button>
+
+    <!-- Header Navigation -->
+    <header class="bg-white dark:bg-slate-800 shadow-sm border-b border-slate-200 dark:border-slate-700 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand Logo/Name -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
+                        <img src="assets/images/Avatar_100.png" alt="NoobTaco Avatar" class="w-10 h-10 rounded-full border-2 border-slate-200 dark:border-slate-600">
+                        <div>
+                            <h1 class="text-xl font-bold text-slate-800 dark:text-slate-100">NoobTaco's</h1>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 -mt-1">Curated Addons</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-100 font-medium transition-colors duration-200">
+                        Home
+                    </a>
+                    <a href="pve.html" class="text-blue-600 dark:text-blue-400 font-semibold">
+                        PvE Content
+                    </a>
+                    <span class="text-slate-400 dark:text-slate-500 font-medium cursor-not-allowed">
+                        PvP (Soon)
+                    </span>
+                    <span class="text-slate-400 dark:text-slate-500 font-medium cursor-not-allowed">
+                        UI & QoL (Soon)
+                    </span>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="px-3 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-100 font-medium transition-colors duration-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">
+                        Home
+                    </a>
+                    <a href="pve.html" class="px-3 py-2 text-blue-600 dark:text-blue-400 font-semibold rounded-lg bg-blue-50 dark:bg-blue-900/20">
+                        PvE Content
+                    </a>
+                    <span class="px-3 py-2 text-slate-400 dark:text-slate-500 font-medium">
+                        UI & QoL (Coming Soon)
+                    </span>
+                    <span class="px-3 py-2 text-slate-400 dark:text-slate-500 font-medium">
+                        NoobTacoUI (Coming Soon)
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto">
+        <div class="md:flex">
+            <!-- Sidebar Navigation -->
+            <aside class="w-full md:w-64 md:min-w-[256px] md:h-screen md:sticky top-16 py-6 px-4 md:py-8 md:px-6 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 md:bg-slate-50 md:dark:bg-slate-900">
+                <!-- Breadcrumb -->
+                <div class="mb-6 pb-4 border-b border-slate-200 dark:border-slate-700">
+                    <nav class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+                        <a href="index.html" class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-200">Home</a>
+                        <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        <span class="text-slate-700 dark:text-slate-300 font-medium">PvE Content</span>
+                    </nav>
+                </div>
+
+                <h1 class="text-xl font-bold text-slate-800 dark:text-slate-100">PvE Addon Guide</h1>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">For Raids, M+, & Delves</p>
+                <nav class="mt-8 space-y-2">
+                    <a href="#overview" class="nav-link flex items-center px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors duration-200">Overview</a>
+                    <a href="#essentials" class="nav-link flex items-center px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors duration-200">Essential Addons</a>
+                    <a href="#encounter-helpers" class="nav-link flex items-center px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors duration-200">Encounter Helpers</a>
+                    <a href="#weakauras" class="nav-link flex items-center px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors duration-200">WeakAuras</a>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-4 sm:p-6 lg:p-10">
+                <section id="overview" class="mb-16">
+                    <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100 border-b border-slate-200 dark:border-slate-700 pb-4">Overview</h2>
+                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+                        Welcome to the curated guide for essential World of Warcraft addons. This application provides a clear, organized list of recommended addons for various high-end content like raiding, Mythic+, and delves. The goal is to help you streamline your UI and improve your performance by providing the right information at the right time. Use the navigation on the left to jump to a specific category.
+                    </p>
+                </section>
+
+                <section id="essentials" class="mb-16">
+                    <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100 border-b border-slate-200 dark:border-slate-700 pb-4">Essential Addons</h2>
+                    <p class="mt-4 text-slate-600 dark:text-slate-300">This section covers the foundational addons that are either mandatory for a smooth experience or highly recommended for the significant quality-of-life improvements they provide. A solid base of addons is key to handling content effectively.</p>
+                    <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        
+                        <div class="addon-card p-6 flex flex-col">
+                           <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">GTFO</h3>
+                                <span class="text-xs font-semibold bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2.5 py-1 rounded-full">Must-Have</span>
+                           </div>
+                            <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">The simplest and most vital addon on this list. GTFO provides an immediate, loud sound alert whenever you're standing in an area that will harm you. This is an essential tool for avoiding damage and staying alive in all types of content.</p>
+                            <a href="https://www.curseforge.com/wow/addons/gtfo" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-center bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Download ➔</a>
+                        </div>
+                        
+                        <div class="addon-card p-6 flex flex-col">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Plater Nameplates</h3>
+                                <span class="text-xs font-semibold bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-200 px-2.5 py-1 rounded-full">Recommended</span>
+                            </div>
+                            <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">An extremely powerful and customizable addon that overhauls the default nameplates. With a good profile, it can show crucial information about enemies, such as casting interrupts, active debuffs, and priority targets directly on their nameplate.</p>
+                            <a href="https://www.curseforge.com/wow/addons/plater-nameplates" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-center bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Download ➔</a>
+                             <a href="https://quazii.com/quazii-ui-the-war-within-installer/" target="_blank" rel="noopener noreferrer" class="mt-2 text-sm text-center text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors duration-200">Optional: Quazii's Profile</a>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section id="encounter-helpers" class="mb-16">
+                    <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100 border-b border-slate-200 dark:border-slate-700 pb-4">Encounter Helpers</h2>
+                    <p class="mt-4 text-slate-600 dark:text-slate-300">For any group content, knowing what abilities bosses and enemies are about to use is critical. These addons provide timers, alerts, and announcements to help you and your group coordinate and react to mechanics properly. You can choose either BigWigs or DBM as your primary boss mod.</p>
+                    <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                        <div class="addon-card p-6 flex flex-col">
+                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">BigWigs & LittleWigs</h3>
+                            <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">This pair of addons provides clean, customizable boss encounter timers and warnings. BigWigs is for raids, while LittleWigs handles dungeons and delves. They are known for being lightweight and efficient. Many players prefer these over alternatives like DBM.</p>
+                            <div class="mt-4 space-y-2">
+                                <a href="https://www.curseforge.com/wow/addons/big-wigs" target="_blank" rel="noopener noreferrer" class="block text-center bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Get BigWigs (Raids) ➔</a>
+                                <a href="https://www.curseforge.com/wow/addons/little-wigs" target="_blank" rel="noopener noreferrer" class="block text-center bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Get LittleWigs (Dungeons) ➔</a>
+                            </div>
+                        </div>
+
+                         <div class="addon-card p-6 flex flex-col">
+                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Voice Packs for BigWigs</h3>
+                            <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">These optional addons add clear voice alerts to BigWigs, providing audible warnings for important mechanics. This allows you to focus on the action without having to read every on-screen alert.</p>
+                             <div class="mt-4 space-y-2">
+                                <a href="https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-voice" target="_blank" rel="noopener noreferrer" class="block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Neural Voice Pack ➔</a>
+                                <a href="https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-countdown" target="_blank" rel="noopener noreferrer" class="block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Countdown Voice Pack ➔</a>
+                            </div>
+                        </div>
+
+                        <div class="addon-card p-6 flex flex-col lg:col-span-2">
+                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">DBM Event Announcement</h3>
+                            <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">A simple but very effective addon that announces in chat when an important ability or mechanic is targeting you. This helps your group react accordingly. It is compatible with a BigWigs setup, so you can use it even if you don't use DBM as your main boss mod.</p>
+                            <a href="https://www.curseforge.com/wow/addons/dbm-event-announcement" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-center bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Download ➔</a>
+                        </div>
+                        
+                    </div>
+                </section>
+
+                <section id="weakauras">
+                    <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100 border-b border-slate-200 dark:border-slate-700 pb-4">WeakAuras</h2>
+                    <p class="mt-4 text-slate-600 dark:text-slate-300">WeakAuras is the most powerful and flexible addon in the game. It allows you to import or create custom displays to track anything from ability cooldowns to complex boss mechanics. Below are the base addon and a recommended set of auras for current content.</p>
+                    
+                    <div class="mt-8 addon-card p-6 bg-slate-800 dark:bg-slate-700 text-white dark:text-slate-100">
+                        <h3 class="text-2xl font-semibold">How to Use WeakAuras</h3>
+                        <ol class="list-decimal list-inside mt-4 space-y-2">
+                            <li>First, install the main <a href="https://www.curseforge.com/wow/addons/weakauras-2" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-300 dark:hover:text-slate-200">WeakAuras 2 addon</a> and the required <a href="https://www.curseforge.com/wow/addons/causesedb" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-300 dark:hover:text-slate-200">CauseseDB</a> companion addon.</li>
+                            <li>In-game, type <code class="bg-slate-900 dark:bg-slate-800 px-2 py-1 rounded">/wa</code> to open the WeakAuras panel.</li>
+                            <li>Click the "Import" button on the top right.</li>
+                            <li>Go to one of the Wago.io links below, click the "Copy Import String" button on the website.</li>
+                            <li>Paste the string into the import window in-game and follow the prompts.</li>
+                        </ol>
+                    </div>
+
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                         <div class="addon-card p-6 flex flex-col">
+                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Causese Anchors</h3>
+                             <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">This is a required framework that helps position and organize the other aura packs. <strong class="text-red-600 dark:text-red-400">Install this one first!</strong></p>
+                            <button data-wago-url="https://wago.io/CauseseAnchors" class="wago-copy-button mt-4 text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Copy Import String</button>
+                        </div>
+                        <div class="addon-card p-6 flex flex-col">
+                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">The War Within Raid Auras</h3>
+                            <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">A comprehensive pack of auras for all raid encounters in The War Within.</p>
+                            <button data-wago-url="https://wago.io/twwraid3" class="wago-copy-button mt-4 text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Copy Import String</button>
+                        </div>
+                         <div class="addon-card p-6 flex flex-col">
+                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">The War Within Dungeon Auras</h3>
+                            <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">A collection of essential auras for Mythic+ and Delve dungeons in The War Within.</p>
+                            <button data-wago-url="https://wago.io/twwdungeons" class="wago-copy-button mt-4 text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Copy Import String</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 dark:bg-slate-950 text-slate-300 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Brand Section -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/images/Avatar_100.png" alt="NoobTaco Avatar" class="w-12 h-12 rounded-full border-2 border-slate-600">
+                        <div>
+                            <h3 class="text-lg font-bold text-white">NoobTaco's</h3>
+                            <p class="text-sm text-slate-400 -mt-1">Curated Addons</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm">
+                        Hand-picked World of Warcraft addons to enhance your gameplay experience across all content types.
+                    </p>
+                </div>
+
+                <!-- Navigation Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors duration-200">Home</a></li>
+                        <li><a href="pve.html" class="text-blue-400 hover:text-blue-300 transition-colors duration-200">PvE Content</a></li>
+                        <li><span class="text-slate-500">UI & Quality of Life (Coming Soon)</span></li>
+                        <li><span class="text-slate-500">Leveling & New Players (Coming Soon)</span></li>
+                        <li><span class="text-slate-500">Professions & Economy (Coming Soon)</span></li>
+                        <li><span class="text-slate-500">NoobTacoUI (Coming Soon)</span></li>
+                    </ul>
+                </div>
+
+                <!-- Social Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Connect</h4>
+                    <div class="flex flex-wrap gap-3 mb-4">
+                        <a href="https://github.com/NoobTaco" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" title="GitHub">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.twitch.tv/noobtaco777" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" title="Twitch">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@NoobTacoTech" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200" title="YouTube">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="https://bsky.app/profile/noobtaco.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors duration-200" title="Bluesky">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 568 501">
+                                <path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.89-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.659 0 75.291 0 57.946 0-28.906 76.135-1.612 123.121 33.664Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="text-slate-500 text-xs">
+                        This site is not affiliated with Blizzard Entertainment.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-slate-700 text-center">
+                <p class="text-slate-500 text-sm">&copy; 2025 NoobTaco. Enhancing your World of Warcraft experience, one addon at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const sunIcon = themeToggle.querySelector('.sun');
+    const moonIcon = themeToggle.querySelector('.moon');
+    
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme');
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const currentTheme = savedTheme || systemTheme;
+    
+    // Apply initial theme
+    if (currentTheme === 'dark') {
+        html.classList.add('dark');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+    } else {
+        html.classList.remove('dark');
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+    }
+    
+    // Theme toggle event listener
+    themeToggle.addEventListener('click', () => {
+        const isDark = html.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        
+        if (isDark) {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        } else {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    }
+
+    // Navigation scroll spy
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const activeId = entry.target.id;
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${activeId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { 
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0.1 
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+    
+    // Smooth scroll for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // WeakAuras copy button functionality
+    const copyButtons = document.querySelectorAll('.wago-copy-button');
+
+    copyButtons.forEach(button => {
+        button.addEventListener('click', async () => {
+            const url = button.dataset.wagoUrl;
+            const originalText = button.textContent;
+            
+            try {
+                // Try modern clipboard API first
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(url);
+                } else {
+                    // Fallback for older browsers
+                    const tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = url;
+                    tempTextarea.style.position = 'absolute';
+                    tempTextarea.style.left = '-9999px';
+                    document.body.appendChild(tempTextarea);
+                    tempTextarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempTextarea);
+                }
+                
+                // Success feedback
+                button.textContent = 'Copied!';
+                button.classList.add('!bg-green-600', '!hover:bg-green-600');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('!bg-green-600', '!hover:bg-green-600');
+                }, 2000);
+                
+            } catch (err) {
+                // If clipboard fails, open the URL
+                window.open(url, '_blank', 'noopener,noreferrer');
+                
+                // Error feedback
+                button.textContent = 'Opened in new tab';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
