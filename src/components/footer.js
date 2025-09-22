@@ -41,7 +41,7 @@ export function createFooter({ layout = 'full', currentPage = 'home' } = {}) {
                     </a>
                 </div>
                 <div class="mt-8 pt-8 border-t border-slate-700 text-slate-500 text-sm">
-                    <p>&copy; 2025 NoobTaco. This site is not affiliated with Blizzard Entertainment.</p>
+                    <p>&copy; 2025 NoobTaco. This site is not affiliated with Blizzard Entertainment. | Version 1.0.0</p>
                 </div>
             </div>
         </footer>
@@ -73,6 +73,7 @@ export function createFooter({ layout = 'full', currentPage = 'home' } = {}) {
                         <ul class="space-y-2">
                             <li><a href="index.html" class="${homeLinkClass} transition-colors duration-200">Home</a></li>
                             <li><a href="pve.html" class="${pveLinkClass} transition-colors duration-200">PvE Content</a></li>
+                            <li><a href="CHANGELOG.md" class="text-slate-400 hover:text-white transition-colors duration-200">Changelog</a></li>
                             <li><span class="text-slate-500">UI & Quality of Life (Coming Soon)</span></li>
                             <li><span class="text-slate-500">Leveling & New Players (Coming Soon)</span></li>
                             <li><span class="text-slate-500">Professions & Economy (Coming Soon)</span></li>
@@ -112,7 +113,7 @@ export function createFooter({ layout = 'full', currentPage = 'home' } = {}) {
                 </div>
 
                 <div class="mt-8 pt-8 border-t border-slate-700 text-center">
-                    <p class="text-slate-500 text-sm">&copy; 2025 NoobTaco. Enhancing your World of Warcraft experience, one addon at a time.</p>
+                    <p class="text-slate-500 text-sm">&copy; 2025 NoobTaco. Enhancing your World of Warcraft experience, one addon at a time. | Version 1.0.0</p>
                 </div>
             </div>
         </footer>

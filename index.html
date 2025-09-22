@@ -67,20 +67,23 @@
         }
         
         .category-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 10px 10px -5px rgb(0 0 0 / 0.1);
+            transform: translateY(-8px) scale(1.02) rotate(1deg);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 10px 10px -5px rgb(0 0 0 / 0.1), 0 0 20px rgb(59 130 246 / 0.3);
         }
         
         .dark .category-card:hover {
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 10px 10px -5px rgb(0 0 0 / 0.1);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 10px 10px -5px rgb(0 0 0 / 0.1), 0 0 20px rgb(147 51 234 / 0.3);
         }
         
         .category-card.coming-soon {
-            opacity: 0.6;
+            opacity: 0.25;
+            filter: blur(2px);
             cursor: not-allowed;
         }
         
         .category-card.coming-soon:hover {
+            opacity: 0.7;
+            filter: blur(0px);
             transform: none;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
