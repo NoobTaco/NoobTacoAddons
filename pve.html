@@ -93,7 +93,7 @@
         }
     </style>
   <script type="module" crossorigin src="/NoobTacoAddons/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/NoobTacoAddons/assets/footerLoader-nWjkE_Zb.js"></script>
+  <script type="module" crossorigin src="/NoobTacoAddons/assets/footerLoader-BaBu8A0V.js"></script>
 </head>
 <body class="bg-slate-50 text-slate-700 dark:bg-slate-900 dark:text-slate-300 transition-colors duration-200">
 
@@ -211,7 +211,7 @@
                             <li>First, install the main <a href="https://www.curseforge.com/wow/addons/weakauras-2" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-300 dark:hover:text-slate-200">WeakAuras 2 addon</a> and the required <a href="https://www.curseforge.com/wow/addons/causesedb" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-300 dark:hover:text-slate-200">CauseseDB</a> companion addon.</li>
                             <li>In-game, type <code class="bg-slate-900 dark:bg-slate-800 px-2 py-1 rounded">/wa</code> to open the WeakAuras panel.</li>
                             <li>Click the "Import" button on the top right.</li>
-                            <li>Go to one of the Wago.io links below, click the "Copy Import String" button on the website.</li>
+                            <li>Click one of the "View on Wago.io" links below to open the page, then click the "Copy Import String" button on the website.</li>
                             <li>Paste the string into the import window in-game and follow the prompts.</li>
                         </ol>
                     </div>
@@ -220,17 +220,17 @@
                          <div class="addon-card p-6 flex flex-col">
                             <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Causese Anchors</h3>
                              <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">This is a required framework that helps position and organize the other aura packs. <strong class="text-red-600 dark:text-red-400">Install this one first!</strong></p>
-                            <button data-wago-url="https://wago.io/CauseseAnchors" class="wago-copy-button mt-4 text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Copy Import String</button>
+                            <a href="https://wago.io/CauseseAnchors" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">View on Wago.io ➔</a>
                         </div>
                         <div class="addon-card p-6 flex flex-col">
                             <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">The War Within Raid Auras</h3>
                             <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">A comprehensive pack of auras for all raid encounters in The War Within.</p>
-                            <button data-wago-url="https://wago.io/twwraid3" class="wago-copy-button mt-4 text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Copy Import String</button>
+                            <a href="https://wago.io/twwraid3" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">View on Wago.io ➔</a>
                         </div>
                          <div class="addon-card p-6 flex flex-col">
                             <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">The War Within Dungeon Auras</h3>
                             <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">A collection of essential auras for Mythic+ and Delve dungeons in The War Within.</p>
-                            <button data-wago-url="https://wago.io/twwdungeons" class="wago-copy-button mt-4 text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Copy Import String</button>
+                            <a href="https://wago.io/twwdungeons" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">View on Wago.io ➔</a>
                         </div>
                     </div>
                 </section>
@@ -264,7 +264,7 @@
                         <ul class="space-y-2">
                             <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors duration-200">Home</a></li>
                             <li><a href="pve.html" class="text-blue-400 hover:text-blue-300 transition-colors duration-200">PvE Content</a></li>
-                            <li><a href="CHANGELOG.md" class="text-slate-400 hover:text-white transition-colors duration-200">Changelog</a></li>
+                            <li><a href="https://github.com/NoobTaco/NoobTacoAddons/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors duration-200">Changelog</a></li>
                             <li><span class="text-slate-500">UI & Quality of Life (Coming Soon)</span></li>
                             <li><span class="text-slate-500">Leveling & New Players (Coming Soon)</span></li>
                             <li><span class="text-slate-500">Professions & Economy (Coming Soon)</span></li>
@@ -403,52 +403,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     behavior: 'smooth',
                     block: 'start'
                 });
-            }
-        });
-    });
-    
-    // WeakAuras copy button functionality
-    const copyButtons = document.querySelectorAll('.wago-copy-button');
-
-    copyButtons.forEach(button => {
-        button.addEventListener('click', async () => {
-            const url = button.dataset.wagoUrl;
-            const originalText = button.textContent;
-            
-            try {
-                // Try modern clipboard API first
-                if (navigator.clipboard && window.isSecureContext) {
-                    await navigator.clipboard.writeText(url);
-                } else {
-                    // Fallback for older browsers
-                    const tempTextarea = document.createElement('textarea');
-                    tempTextarea.value = url;
-                    tempTextarea.style.position = 'absolute';
-                    tempTextarea.style.left = '-9999px';
-                    document.body.appendChild(tempTextarea);
-                    tempTextarea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(tempTextarea);
-                }
-                
-                // Success feedback
-                button.textContent = 'Copied!';
-                button.classList.add('!bg-green-600', '!hover:bg-green-600');
-                
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.classList.remove('!bg-green-600', '!hover:bg-green-600');
-                }, 2000);
-                
-            } catch (err) {
-                // If clipboard fails, open the URL
-                window.open(url, '_blank', 'noopener,noreferrer');
-                
-                // Error feedback
-                button.textContent = 'Opened in new tab';
-                setTimeout(() => {
-                    button.textContent = originalText;
-                }, 2000);
             }
         });
     });
