@@ -28,4 +28,7 @@ inlineFooter('index.html', 'simple', 'home');
 // Inline footer in pve.html (full layout)
 inlineFooter('pve.html', 'full', 'pve');
 
+// Inline footer in noobtacoui.html (full layout)
+inlineFooter('noobtacoui.html', 'full', 'noobtacoui');
+
 console.log('Footer inlining complete!');
