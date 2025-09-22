@@ -7,7 +7,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        pve: resolve(__dirname, 'pve.html')
+        pve: resolve(__dirname, 'pve.html'),
+        footerLoader: resolve(__dirname, 'src/footer-loader.js')
       }
     }
   }
