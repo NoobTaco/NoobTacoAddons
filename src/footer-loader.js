@@ -358,8 +358,35 @@ async function initEncounterHelpersCards(container) {
     } : null;
 
     // Create audio cards (currently hardcoded as voice packs aren't in JSON)
-    const audioCards = [
-        {
+    // Build audio cards from JSON where possible, otherwise fall back to hardcoded links
+    const voicePackIds = [
+        'wowvoxpacks-neural2-c-bigwigs-voice',
+        'wowvoxpacks-neural2-c-bigwigs-countdown'
+    ];
+
+    const voicePackEntries = voicePackIds.map(id => addons.find(a => a.id === id)).filter(Boolean);
+
+    const audioCards = [];
+
+    if (voicePackEntries.length > 0) {
+        // Create a separate card for each available voice pack so each shows its own icon and name
+        voicePackEntries.forEach(entry => {
+            audioCards.push({
+                type: 'addon',
+                title: entry.name,
+                description: entry.description || 'Voice pack for BigWigs providing audible alerts and countdowns.',
+                addonIcon: entry.icon || 'assets/images/bigwigs-icon.jpeg',
+                downloadLinks: Object.entries(entry.links || {}).filter(([, url]) => !!url).map(([key, url]) => ({
+                    site: key.toLowerCase(),
+                    url: url,
+                    text: key === 'curseforge' ? 'View on CurseForge ➔' : `${key.charAt(0).toUpperCase() + key.slice(1)} ➔`,
+                    class: 'block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200'
+                }))
+            });
+        });
+    } else {
+        // Fallback to the previous single parent card when JSON entries aren't available
+        audioCards.push({
             type: 'addon',
             title: 'Voice Packs for BigWigs',
             description: 'These optional addons add clear voice alerts to BigWigs, providing audible warnings for important mechanics. This allows you to focus on the action without having to read every on-screen alert.',
@@ -368,8 +395,8 @@ async function initEncounterHelpersCards(container) {
                 { site: 'curseforge', url: 'https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-voice', text: 'Neural Voice Pack ➔', class: 'block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200' },
                 { site: 'curseforge', url: 'https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-countdown', text: 'Countdown Voice Pack ➔', class: 'block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200' }
             ]
-        }
-    ];
+        });
+    }
 
     // Add DBM Event Announcement if it exists
     const dbmAddon = addons.find(addon => addon.id === 'dbm-event-announcement');
@@ -454,18 +481,60 @@ if (document.readyState === 'loading') {
 
 // Add copy functionality for layout import strings
 document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('copy-layout-btn')) {
-        const importString = e.target.getAttribute('data-import-string');
-        navigator.clipboard.writeText(importString).then(() => {
-            const originalText = e.target.textContent;
-            e.target.textContent = 'Copied!';
-            e.target.style.backgroundColor = '#22c55e';
-            setTimeout(() => {
-                e.target.textContent = originalText;
-                e.target.style.backgroundColor = '';
-            }, 2000);
-        }).catch(err => {
-            console.error('Failed to copy: ', err);
+    // Use closest so clicks on the inner svg/span still find the button
+    const btn = e.target.closest && e.target.closest('.copy-layout-btn');
+    if (!btn) return;
+
+    const importString = btn.getAttribute('data-import-string') || '';
+
+    // Small utility to copy text with a fallback for older browsers
+    function copyTextToClipboard(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text);
+        }
+
+        return new Promise((resolve, reject) => {
+            try {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                // Prevent scrolling to bottom
+                textarea.style.position = 'fixed';
+                textarea.style.left = '-9999px';
+                document.body.appendChild(textarea);
+                textarea.focus();
+                textarea.select();
+                const successful = document.execCommand('copy');
+                document.body.removeChild(textarea);
+                if (successful) resolve(); else reject(new Error('execCommand failed'));
+            } catch (err) {
+                reject(err);
+            }
         });
     }
+
+    copyTextToClipboard(importString).then(() => {
+        // Update the visible text in the button (prefer the inner span)
+        const textSpan = btn.querySelector('span');
+        const originalText = textSpan ? textSpan.textContent : btn.textContent;
+        if (textSpan) textSpan.textContent = 'Copied!'; else btn.textContent = 'Copied!';
+        btn.style.backgroundColor = '#22c55e';
+        setTimeout(() => {
+            if (textSpan) textSpan.textContent = originalText; else btn.textContent = originalText;
+            btn.style.backgroundColor = '';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+        // Optionally provide a visual error state
+        const textSpan = btn.querySelector('span');
+        const originalText = textSpan ? textSpan.textContent : btn.textContent;
+        if (textSpan) textSpan.textContent = 'Failed'; else btn.textContent = 'Failed';
+        btn.style.backgroundColor = '#ef4444';
+        setTimeout(() => {
+            if (textSpan) textSpan.textContent = originalText; else btn.textContent = originalText;
+            btn.style.backgroundColor = '';
+        }, 2000);
+    });
+    
+    // Prevent other click handlers from acting on child elements
+    e.stopPropagation();
 });

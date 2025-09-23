@@ -41,6 +41,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Other
 - Added a local copy of the CurseForge favicon to `public/assets/images/` for use with source buttons
 
+## [1.2.2] - 2025-09-23
+
+### Added
+- Neural2 BigWigs Voice Pack entries to `data/addons.json` (voice and countdown packs)
+- Local icon for Neural2 voice packs at `public/assets/images/neural2-voice-pack.png`
+
+### Changed
+- Audio Cues section: voice packs are now rendered as individual cards (each shows its own name and icon) instead of a single BigWigs parent card
+- `src/footer-loader.js` updated to read voice pack entries from `data/addons.json` when available and fall back to hardcoded links otherwise
+- Build step now copies `data/` into `dist/` so runtime fetches for JSON succeed
+
+### Fixed
+- Copy Import String button event handling: use event delegation + clipboard fallback and ensure icon/text clicks trigger copy and UI feedback
+
+### Technical
+- Updated package.json build script to ensure `dist/data` is included during build
+- Rebuilt `dist/` and inlined the footer to apply changes to the production bundle
+
 ## [1.1.0] - 2025-09-22
 
 ### Added

@@ -144,4 +144,29 @@
     "id": "noobtacoui-media",
     "icon": "assets/images/Avatar_100.png"
   }
+  ,
+  {
+    "name": "Neural2 BigWigs Voice Pack",
+    "description": "A neural-generated voice pack that provides spoken alerts for BigWigs to audibly announce important encounter mechanics.",
+    "category": ["Audio", "Boss Mods"],
+    "tags": ["pve-encounter-helpers"],
+    "links": {
+      "curseforge": "https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-voice"
+    },
+    "last_updated": "2025-09-23",
+    "id": "wowvoxpacks-neural2-c-bigwigs-voice",
+  "icon": "assets/images/neural2-voice-pack.png"
+  },
+  {
+    "name": "Neural2 BigWigs Countdown Voice Pack",
+    "description": "A neural-generated countdown voice pack for BigWigs that gives audible countdowns for critical mechanics.",
+    "category": ["Audio", "Boss Mods"],
+    "tags": ["pve-encounter-helpers"],
+    "links": {
+      "curseforge": "https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-countdown"
+    },
+    "last_updated": "2025-09-23",
+    "id": "wowvoxpacks-neural2-c-bigwigs-countdown",
+  "icon": "assets/images/neural2-voice-pack.png"
+  }
 ]
