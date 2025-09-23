@@ -114,7 +114,7 @@ export function createFooter({ layout = 'full', currentPage = 'home' } = {}) {
                 </div>
 
                 <div class="mt-8 pt-8 border-t border-slate-700 text-center">
-                    <p class="text-slate-500 text-sm">&copy; 2025 NoobTaco. Enhancing your World of Warcraft experience, one addon at a time. | Version 1.0.0</p>
+                    <p class="text-slate-500 text-sm">&copy; 2025 NoobTaco. Enhancing your World of Warcraft experience, one addon at a time. | Version 1.2.3</p>
                 </div>
             </div>
         </footer>
