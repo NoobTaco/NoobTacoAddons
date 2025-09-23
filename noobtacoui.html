@@ -145,13 +145,8 @@
                     <p class="mt-4 text-slate-600 dark:text-slate-300">This media addon provides SharedMedia assets including custom fonts, audio cues, and background graphics that enhance the visual and auditory experience of the NoobTacoUI setup.</p>
                     <p class="mt-2 text-slate-500 dark:text-slate-400 text-sm">This addon works seamlessly with the default World of Warcraft interface and does not require ElvUI or any other modifications.</p>
                     <p class="mt-2 text-slate-600 dark:text-slate-300">For the best experience, use NoobTacoUI Media with the default World of Warcraft interface and the provided Edit Mode layouts. That said, it enhances any UI by providing additional media assets.</p>
-                    <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <div class="addon-card p-6 flex flex-col">
-                            <img src="https://media.forgecdn.net/avatars/thumbnails/307/986/64/64/637390259729450971.png" alt="NoobTacoUI Media Icon" class="w-12 h-12 mb-4 mx-auto">
-                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">NoobTacoUI Media</h3>
-                            <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">A comprehensive media pack that includes custom fonts for better readability, unique audio cues for important alerts, and high-quality background graphics to personalize your UI.</p>
-                            <a href="https://www.curseforge.com/wow/addons/noobtacoui-media" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-center bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Download ➔</a>
-                        </div>
+                    <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6" id="noobtacoui-media-grid">
+                        <!-- Cards will be populated by JavaScript -->
                     </div>
                 </section>
 
@@ -159,24 +154,8 @@
                     <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100 border-b border-slate-200 dark:border-slate-700 pb-4">Edit Mode Input Strings</h2>
                     <p class="mt-4 text-slate-600 dark:text-slate-300">Use World of Warcraft's built-in Edit Mode to customize your UI layout. Below are the input strings for standard mode and 5-man heal mode configurations.</p>
                     
-                    <div class="mt-8 space-y-8">
-                        <div class="addon-card p-6">
-                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-4">Standard Mode</h3>
-                            <p class="text-slate-600 dark:text-slate-300 mb-4">Copy and paste this string into WoW's Edit Mode import to apply the standard layout.</p>
-                            <button class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200" onclick="navigator.clipboard.writeText(standardModeImportString); this.style.backgroundColor='#22c55e'; setTimeout(() => this.style.backgroundColor='', 500);">Copy Import String</button>
-                            <div class="mt-4">
-                                <img src="assets/images/standard-mode-screenshot.jpg" alt="Screenshot of standard mode layout" class="w-full rounded-lg border border-slate-200 dark:border-slate-700">
-                            </div>
-                        </div>
-                        
-                        <div class="addon-card p-6">
-                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-4">5-Man Heal Mode</h3>
-                            <p class="text-slate-600 dark:text-slate-300 mb-4">Copy and paste this string into WoW's Edit Mode import for optimized healing layouts in small groups.</p>
-                            <button class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200" onclick="navigator.clipboard.writeText(healModeImportString); this.style.backgroundColor='#22c55e'; setTimeout(() => this.style.backgroundColor='', 500);">Copy Import String</button>
-                            <div class="mt-4">
-                                <img src="assets/images/heal-mode-screenshot.jpg" alt="Screenshot of 5-man heal mode layout" class="w-full rounded-lg border border-slate-200 dark:border-slate-700">
-                            </div>
-                        </div>
+                    <div class="mt-8 space-y-8" id="ui-layouts-grid">
+                        <!-- Layout cards will be populated by JavaScript -->
                     </div>
                 </section>
 
@@ -186,13 +165,8 @@
                 <section id="noobtacoui">
                     <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100 border-b border-slate-200 dark:border-slate-700 pb-4">NoobTacoUI</h2>
                     <p class="mt-4 text-slate-600 dark:text-slate-300">The core <a href="https://tukui.org/elvui" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">ElvUI</a> edit that brings together all the visual elements and functionality of the NoobTacoUI setup.</p>
-                    <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <div class="addon-card p-6 flex flex-col">
-                            <img src="https://media.forgecdn.net/avatars/thumbnails/307/985/64/64/637390255114735063.png" alt="NoobTacoUI Icon" class="w-12 h-12 mb-4 mx-auto">
-                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">NoobTacoUI</h3>
-                            <p class="mt-2 text-slate-600 dark:text-slate-300 flex-grow">A comprehensive ElvUI profile that provides a clean, modern interface with optimized layouts for raiding, dungeons, and general gameplay. This addon requires <a href="https://tukui.org/elvui" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">ElvUI</a> as a dependency.</p>
-                            <a href="https://www.curseforge.com/wow/addons/noobtacoui" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-center bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">Download ➔</a>
-                        </div>
+                    <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6" id="noobtacoui-grid">
+                        <!-- Cards will be populated by JavaScript -->
                     </div>
                 </section>
             </main>
@@ -206,11 +180,6 @@
     <script type="module" src="src/footer-loader.js"></script>
 
 <script>
-const standardModeImportString = "1 43 0 0 0 0 0 UIParent 870.0 -1117.5 -1 ##$$%/&%'%)#+$,$ 0 1 0 1 1 UIParent 0.0 -1082.0 -1 ##$$%/&%'%(#,$ 0 2 0 4 4 UIParent 1048.9 40.0 -1 #$$$%/&%'%(#,$ 0 3 0 0 0 UIParent 2064.3 -363.3 -1 #$$$%/&%'%(#,$ 0 4 0 4 4 UIParent 227.4 66.0 -1 ##$$%/&$'%(#,$ 0 5 0 4 4 UIParent 161.7 168.6 -1 ##$$%/&('%(#,$ 0 6 0 4 4 UIParent 154.1 168.3 -1 ##$$%/&('%(#,$ 0 7 0 4 4 UIParent 154.6 165.5 -1 ##$$%/&('%(#,$ 0 10 0 0 0 UIParent 870.0 -1054.0 -1 ##$$&&'% 0 11 0 4 4 UIParent -920.0 -227.8 -1 ##$$&''%,# 0 12 0 7 7 UIParent -273.0 202.0 -1 ##$$&('% 1 -1 0 4 4 UIParent 0.0 -431.6 -1 #'$#%# 2 -1 0 2 2 UIParent 0.0 0.0 -1 ##$#%( 3 0 0 5 5 UIParent -1290.7 -287.1 -1 $#3# 3 1 0 3 3 UIParent 1288.7 -290.0 -1 %$3# 3 2 0 1 1 UIParent 433.5 -948.0 -1 %#&#3# 3 3 0 0 0 UIParent 520.7 -337.3 -1 '$(#)#-?.;/#1#3# 3 4 0 0 0 UIParent 2.7 -438.0 -1 ,%-'.//#0%1$2( 3 5 0 2 2 UIParent -78.0 -271.6 -1 &$*$3' 3 6 0 2 2 UIParent -79.2 -276.0 -1 -#.#/#4& 3 7 1 4 4 UIParent 0.0 0.0 -1 3# 4 -1 0 7 7 UIParent 0.0 402.0 -1 # 5 -1 0 0 0 UIParent 1267.4 -1029.0 -1 # 6 0 1 2 0 MinimapCluster -10.0 -10.0 -1 ##$#%#&.(()( 6 1 0 0 0 UIParent 630.6 -589.1 -1 ##$$%#'((*)( 7 -1 0 1 1 UIParent 7.0 -162.0 -1 # 8 -1 0 4 4 UIParent -636.5 -346.3 -1 #($%%%&$ 9 -1 0 4 4 UIParent -280.0 -540.3 -1 # 10 -1 1 0 0 UIParent 16.0 -116.0 -1 # 11 -1 0 1 1 UIParent 687.0 -842.0 -1 # 12 -1 0 4 4 UIParent 843.2 -40.0 -1 #@$#%# 13 -1 0 1 1 UIParent -930.3 -2.0 -1 ##$#%&&, 14 -1 0 6 8 MicroMenuContainer 3.6 -0.4 -1 ##$#%$ 15 0 0 0 0 UIParent 866.8 -1153.2 -1 # 15 1 0 0 0 UIParent 866.8 -1164.1 -1 # 16 -1 0 1 1 UIParent 431.0 -162.0 -1 #( 17 -1 1 1 1 UIParent 0.0 -100.0 -1 ## 18 -1 1 5 5 UIParent 0.0 0.0 -1 #- 19 -1 0 4 4 UIParent 0.0 415.8 -1 ## 20 0 0 1 1 UIParent 0.0 -870.6 -1 ##$*%$&%'%(-($)#+$,$-$ 20 1 0 4 4 UIParent 0.0 -390.6 -1 ##$+%$&%'%(-($)%+$,$-$ 20 2 0 6 0 PlayerFrame 20.0 -12.0 -1 ##$$%#&''((-($)#+$,$-$ 20 3 0 1 1 UIParent 472.0 -670.6 -1 #$$$%#&('((-($)#*#+$,$-$";
-
-const healModeImportString = "1 43 0 0 0 0 0 UIParent 870.0 -1117.5 -1 ##$$%/&%'%)#+$,$ 0 1 0 1 1 UIParent 0.0 -1082.0 -1 ##$$%/&%'%(#,$ 0 2 0 4 4 UIParent 1048.9 40.0 -1 #$$$%/&%'%(#,$ 0 3 0 0 0 UIParent 2064.3 -363.3 -1 #$$$%/&%'%(#,$ 0 4 0 4 4 UIParent 227.4 66.0 -1 ##$$%/&$'%(#,$ 0 5 0 4 4 UIParent 161.7 168.6 -1 ##$$%/&('%(#,$ 0 6 0 4 4 UIParent 154.1 168.3 -1 ##$$%/&('%(#,$ 0 7 0 4 4 UIParent 154.6 165.5 -1 ##$$%/&('%(#,$ 0 10 0 0 0 UIParent 870.0 -1054.0 -1 ##$$&&'% 0 11 0 4 4 UIParent -920.0 -227.8 -1 ##$$&''%,# 0 12 0 7 7 UIParent -273.0 202.0 -1 ##$$&('% 1 -1 0 4 4 UIParent 0.0 -431.6 -1 #'$#%# 2 -1 0 2 2 UIParent 0.0 0.0 -1 ##$#%( 3 0 0 5 5 UIParent -1290.7 -287.1 -1 $#3# 3 1 0 3 3 UIParent 1288.7 -290.0 -1 %$3# 3 2 0 1 1 UIParent 433.5 -948.0 -1 %#&#3# 3 3 0 0 0 UIParent 520.7 -337.3 -1 '$(#)#-?.;/#1#3# 3 4 0 0 0 UIParent 2.7 -438.0 -1 ,%-'.//#0%1$2( 3 5 0 2 2 UIParent -78.0 -271.6 -1 &$*$3' 3 6 0 2 2 UIParent -79.2 -276.0 -1 -#.#/#4& 3 7 1 4 4 UIParent 0.0 0.0 -1 3# 4 -1 0 7 7 UIParent 0.0 402.0 -1 # 5 -1 0 0 0 UIParent 1267.4 -1029.0 -1 # 6 0 1 2 0 MinimapCluster -10.0 -10.0 -1 ##$#%#&.(()( 6 1 0 0 0 UIParent 630.6 -589.1 -1 ##$$%#'((*)( 7 -1 0 1 1 UIParent 7.0 -162.0 -1 # 8 -1 0 4 4 UIParent -636.5 -346.3 -1 #($%%%&$ 9 -1 0 4 4 UIParent -280.0 -540.3 -1 # 10 -1 1 0 0 UIParent 16.0 -116.0 -1 # 11 -1 0 1 1 UIParent 687.0 -842.0 -1 # 12 -1 0 4 4 UIParent 843.2 -40.0 -1 #@$#%# 13 -1 0 1 1 UIParent -930.3 -2.0 -1 ##$#%&&, 14 -1 0 6 8 MicroMenuContainer 3.6 -0.4 -1 ##$#%$ 15 0 0 0 0 UIParent 866.8 -1153.2 -1 # 15 1 0 0 0 UIParent 866.8 -1164.1 -1 # 16 -1 0 1 1 UIParent 431.0 -162.0 -1 #( 17 -1 1 1 1 UIParent 0.0 -100.0 -1 ## 18 -1 1 5 5 UIParent 0.0 0.0 -1 #- 19 -1 0 4 4 UIParent 0.0 415.8 -1 ## 20 0 0 7 7 UIParent -0.0 241.9 -1 ##$2%$&#'%(-($)#+$,$-$ 20 1 0 4 4 UIParent 0.0 -390.6 -1 ##$+%$&%'%(-($)%+$,$-$ 20 2 0 6 0 PlayerFrame 20.0 -12.0 -1 ##$$%#&''((-($)#+$,$-$ 20 3 0 1 1 UIParent 472.0 -670.6 -1 #$$$%#&('((-($)#*#+$,$-$";
-
-
 document.addEventListener('DOMContentLoaded', () => {
     // Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');

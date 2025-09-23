@@ -3,7 +3,126 @@ import { createNavHeader } from './components/header.js';
 import { createCard, createAddonSiteIcon } from './components/card.js';
 
 /**
- * Initialize the header and footer on page load
+ * Load and filter addons by tag from JSON
+ */
+async function loadAddonsByTag(tag) {
+    try {
+        const response = await fetch('data/addons.json');
+        const addons = await response.json();
+        return addons.filter(addon => addon.tags?.includes(tag));
+    } catch (error) {
+        console.error('Error loading addons:', error);
+        return [];
+    }
+}
+
+/**
+ * Load and filter WeakAuras by tag from JSON
+ */
+async function loadWeakAurasByTag(tag) {
+    try {
+        const response = await fetch('data/weakauras.json');
+        const weakauras = await response.json();
+        return weakauras.filter(item => item.tags?.includes(tag));
+    } catch (error) {
+        console.error('Error loading WeakAuras:', error);
+        return [];
+    }
+}
+
+/**
+ * Load and filter UI layouts by tag from JSON
+ */
+async function loadLayoutsByTag(tag) {
+    try {
+        const response = await fetch('data/ui-layouts.json');
+        const layouts = await response.json();
+        return layouts.filter(layout => layout.tags?.includes(tag));
+    } catch (error) {
+        console.error('Error loading UI layouts:', error);
+        return [];
+    }
+}
+
+/**
+ * Initialize NoobTacoUI Media addon cards on the noobtacoui page
+ */
+async function initNoobTacoMediaCards(container) {
+    const addons = await loadAddonsByTag('noobtacoui');
+    const mediaAddon = addons.find(addon => addon.id === 'noobtacoui-media');
+
+    if (mediaAddon) {
+        const card = {
+            type: 'addon',
+            title: mediaAddon.name,
+            description: 'A comprehensive media pack that includes custom fonts for better readability, unique audio cues for important alerts, and high-quality background graphics to personalize your UI.',
+            addonIcon: 'https://media.forgecdn.net/avatars/thumbnails/307/986/64/64/637390259729450971.png',
+            downloadLinks: [
+                { url: mediaAddon.links?.curseforge || '', text: 'Download ➔' }
+            ]
+        };
+
+        container.innerHTML = createCard(card);
+    }
+}
+
+/**
+ * Initialize NoobTacoUI addon cards on the noobtacoui page
+ */
+async function initNoobTacoCards(container) {
+    const addons = await loadAddonsByTag('noobtacoui');
+    const uiAddon = addons.find(addon => addon.id === 'noobtacoui');
+
+    if (uiAddon) {
+        const card = {
+            type: 'addon',
+            title: uiAddon.name,
+            description: 'A comprehensive ElvUI profile that provides a clean, modern interface with optimized layouts for raiding, dungeons, and general gameplay. This addon requires ElvUI as a dependency.',
+            addonIcon: 'https://media.forgecdn.net/avatars/thumbnails/307/985/64/64/637390255114735063.png',
+            downloadLinks: [
+                { url: uiAddon.links?.curseforge || '', text: 'Download ➔' }
+            ]
+        };
+
+        container.innerHTML = createCard(card);
+    }
+}
+
+/**
+ * Initialize UI layouts cards on the noobtacoui page
+ */
+async function initUILayoutsCards(container) {
+    const layouts = await loadLayoutsByTag('noobtacoui-layouts');
+
+    const cards = layouts.map(layout => ({
+        type: 'layout',
+        title: layout.name,
+        description: layout.description,
+        import_string: layout.import_string,
+        copyButtonText: 'Copy Import String'
+    }));
+
+    container.innerHTML = cards.map(card => createLayoutCard(card)).join('');
+}
+
+/**
+ * Create a layout card (for UI import strings)
+ */
+function createLayoutCard(card) {
+    return `
+        <div class="addon-card p-6">
+            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-4">${card.title}</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-4">${card.description}</p>
+            <button class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 copy-layout-btn" data-import-string="${card.import_string.replace(/"/g, '&quot;')}">${card.copyButtonText}</button>
+            <div class="mt-4">
+                <img src="assets/images/${card.title.toLowerCase().replace(/\s+/g, '-')}-screenshot.jpg" alt="Screenshot of ${card.title.toLowerCase()}" class="w-full rounded-lg border border-slate-200 dark:border-slate-700">
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Initialize all page components
  */
 function initComponents() {
     // Initialize footer
@@ -34,20 +153,20 @@ function initComponents() {
         initCategoryCards(categoriesGrid);
     }
 
-    // Initialize addon cards on pve page
-    const essentialsGrid = document.getElementById('essentials-grid');
-    if (essentialsGrid) {
-        initEssentialsCards(essentialsGrid);
+    // Initialize addon cards on noobtacoui page
+    const noobtacoMediaGrid = document.getElementById('noobtacoui-media-grid');
+    if (noobtacoMediaGrid) {
+        initNoobTacoMediaCards(noobtacoMediaGrid);
     }
 
-    const encounterHelpersGrid = document.getElementById('encounter-helpers-grid');
-    if (encounterHelpersGrid) {
-        initEncounterHelpersCards(encounterHelpersGrid);
+    const noobtacouiGrid = document.getElementById('noobtacoui-grid');
+    if (noobtacouiGrid) {
+        initNoobTacoCards(noobtacouiGrid);
     }
 
-    const weakaurasGrid = document.getElementById('weakauras-grid');
-    if (weakaurasGrid) {
-        initWeakAurasCards(weakaurasGrid);
+    const uiLayoutsGrid = document.getElementById('ui-layouts-grid');
+    if (uiLayoutsGrid) {
+        initUILayoutsCards(uiLayoutsGrid);
     }
 
     // Initialize mobile menu functionality
@@ -156,31 +275,24 @@ function initCategoryCards(container) {
 /**
  * Initialize essential addon cards on the pve page
  */
-function initEssentialsCards(container) {
-    const cards = [
-        {
-            type: 'addon',
-            title: 'GTFO',
-            description: 'The simplest and most vital addon on this list. GTFO provides an immediate, loud sound alert whenever you\'re standing in an area that will harm you. This is an essential tool for avoiding damage and staying alive in all types of content.',
-            priority: 'Must-Have',
-            addonIcon: '/assets/images/gtfo-icon.jpg',
-            downloadLinks: [
-                { url: 'https://www.curseforge.com/wow/addons/gtfo', text: 'Download ➔' }
-            ]
-        },
-        {
-            type: 'addon',
-            title: 'Plater Nameplates',
-            description: 'An extremely powerful and customizable addon that overhauls the default nameplates. With a good profile, it can show crucial information about enemies, such as casting interrupts, active debuffs, and priority targets directly on their nameplate.',
-            priority: 'Recommended',
-            priorityClass: 'bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-200',
-            addonIcon: '/assets/images/plater-icon.png',
-            downloadLinks: [
-                { url: 'https://www.curseforge.com/wow/addons/plater-nameplates', text: 'Download ➔' }
-            ],
-            additionalContent: '<a href="https://quazii.com/quazii-ui-the-war-within-installer/" target="_blank" rel="noopener noreferrer" class="mt-2 text-sm text-center font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors duration-200">Optional: Quazii\'s Profile</a>'
-        }
-    ];
+async function initEssentialsCards(container) {
+    const addons = await loadAddonsByTag('pve-essentials');
+
+    // Convert JSON data to card format expected by createCard
+    const cards = addons.map(addon => ({
+        type: 'addon',
+        title: addon.name,
+        description: addon.description,
+        priority: addon.name === 'GTFO' ? 'Must-Have' : 'Recommended',
+        priorityClass: addon.name === 'GTFO' ? '' : 'bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-200',
+        addonIcon: addon.id === 'gtfo' ? '/assets/images/gtfo-icon.jpg' : '/assets/images/plater-icon.png',
+        downloadLinks: Object.entries(addon.links).map(([key, url]) => ({
+            url: url,
+            text: key === 'curseforge' ? 'Download ➔' : `${key.charAt(0).toUpperCase() + key.slice(1)} ➔`
+        })),
+        additionalContent: addon.id === 'plater-nameplates' ?
+            '<a href="https://quazii.com/quazii-ui-the-war-within-installer/" target="_blank" rel="noopener noreferrer" class="mt-2 text-sm text-center font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors duration-200">Optional: Quazii\'s Profile</a>' : ''
+    }));
 
     container.innerHTML = cards.map(card => createCard(card)).join('');
 }
@@ -188,18 +300,25 @@ function initEssentialsCards(container) {
 /**
  * Initialize encounter helpers addon cards on the pve page
  */
-function initEncounterHelpersCards(container) {
+async function initEncounterHelpersCards(container) {
+    const addons = await loadAddonsByTag('pve-encounter-helpers');
+
+    // Create BigWigs combined card
+    const bigWigsAddon = addons.find(addon => addon.id === 'bigwigs');
+    const littleWigsAddon = addons.find(addon => addon.id === 'littlewigs');
+
     const bigWigsCard = {
         type: 'addon',
         title: 'BigWigs & LittleWigs',
         description: 'This pair of addons provides clean, customizable boss encounter timers and warnings. BigWigs is for raids, while LittleWigs handles dungeons and delves. They are known for being lightweight and efficient. Many players prefer these over alternatives like DBM.',
         addonIcon: '/assets/images/bigwigs-icon.jpeg',
         downloadLinks: [
-            { url: 'https://www.curseforge.com/wow/addons/big-wigs', text: 'Get BigWigs (Raids) ➔' },
-            { url: 'https://www.curseforge.com/wow/addons/little-wigs', text: 'Get LittleWigs (Dungeons) ➔' }
+            { url: bigWigsAddon?.links?.curseforge || '', text: 'Get BigWigs (Raids) ➔' },
+            { url: littleWigsAddon?.links?.curseforge || '', text: 'Get LittleWigs (Dungeons) ➔' }
         ]
     };
 
+    // Create audio cards (currently hardcoded as voice packs aren't in JSON)
     const audioCards = [
         {
             type: 'addon',
@@ -210,17 +329,22 @@ function initEncounterHelpersCards(container) {
                 { url: 'https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-voice', text: 'Neural Voice Pack ➔', class: 'block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200' },
                 { url: 'https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-countdown', text: 'Countdown Voice Pack ➔', class: 'block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200' }
             ]
-        },
-        {
+        }
+    ];
+
+    // Add DBM Event Announcement if it exists
+    const dbmAddon = addons.find(addon => addon.id === 'dbm-event-announcement');
+    if (dbmAddon) {
+        audioCards.push({
             type: 'addon',
-            title: 'DBM Event Announcement',
+            title: dbmAddon.name,
             description: 'A simple but very effective addon that announces in chat when an important ability or mechanic is targeting you. This helps your group react accordingly. <strong class="font-bold text-blue-600 dark:text-blue-400">It is compatible with a BigWigs setup</strong>, so you can use it even if you don\'t use DBM as your main boss mod.',
             addonIcon: '/assets/images/dbm-event-icon.png',
             downloadLinks: [
-                { url: 'https://www.curseforge.com/wow/addons/dbm-event-announcement', text: 'Download ➔' }
+                { url: dbmAddon.links?.curseforge || '', text: 'Download ➔' }
             ]
-        }
-    ];
+        });
+    }
 
     container.innerHTML = `
         <div class="mb-6">
@@ -239,54 +363,36 @@ function initEncounterHelpersCards(container) {
 /**
  * Initialize WeakAuras addon cards on the pve page
  */
-function initWeakAurasCards(container) {
-    const firstRowCards = [
-        {
-            type: 'addon',
-            title: 'WeakAuras 2',
-            description: 'The base WeakAuras addon that provides the framework for all WeakAura displays.',
-            addonIcon: '/assets/images/weakauras-icon.png',
-            downloadLinks: [
-                { url: 'https://www.curseforge.com/wow/addons/weakauras-2', text: 'Download WeakAuras ➔' }
-            ]
-        },
-        {
-            type: 'addon',
-            title: 'CauseseDB',
-            description: 'A required companion addon for WeakAuras that provides updated spell IDs, timers, and positioning data.',
-            addonIcon: '/assets/images/causesedb-icon.png',
-            downloadLinks: [
-                { url: 'https://www.curseforge.com/wow/addons/causesedb', text: 'Download CauseseDB ➔' }
-            ]
-        }
-    ];
+async function initWeakAurasCards(container) {
+    // Load WeakAuras addons and packs
+    const weakAurasAddons = await loadAddonsByTag('pve-weakauras');
+    const weakAurasPacks = await loadWeakAurasByTag('pve-weakauras');
 
-    const secondRowCards = [
-        {
-            type: 'addon',
-            title: 'Causese Anchors',
-            description: 'This is a required framework that helps position and organize the other aura packs. <strong class="text-red-600 dark:text-red-400">Install this one first!</strong>',
-            downloadLinks: [
-                { url: 'https://wago.io/CauseseAnchors', text: 'View on Wago.io ➔', class: 'inline-block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200' }
-            ]
-        },
-        {
-            type: 'addon',
-            title: 'The War Within Raid Auras',
-            description: 'A comprehensive pack of auras for all raid encounters in The War Within.',
-            downloadLinks: [
-                { url: 'https://wago.io/twwraid3', text: 'View on Wago.io ➔', class: 'inline-block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200' }
-            ]
-        },
-        {
-            type: 'addon',
-            title: 'The War Within Dungeon Auras',
-            description: 'A collection of essential auras for Mythic+ and Delve dungeons in The War Within.',
-            downloadLinks: [
-                { url: 'https://wago.io/twwdungeons', text: 'View on Wago.io ➔', class: 'inline-block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200' }
-            ]
-        }
-    ];
+    // Create first row cards (base addons)
+    const firstRowCards = weakAurasAddons.map(addon => ({
+        type: 'addon',
+        title: addon.name,
+        description: addon.description,
+        addonIcon: addon.id === 'weakauras' ? '/assets/images/weakauras-icon.png' : '/assets/images/causesedb-icon.png',
+        downloadLinks: Object.entries(addon.links).map(([key, url]) => ({
+            url: url,
+            text: key === 'curseforge' ? 'Download WeakAuras ➔' : 'Download CauseseDB ➔'
+        }))
+    }));
+
+    // Create second row cards (import strings)
+    const secondRowCards = weakAurasPacks.map(pack => ({
+        type: 'addon',
+        title: pack.name,
+        description: pack.description,
+        downloadLinks: [
+            {
+                url: pack.links?.wago || '',
+                text: 'View on Wago.io ➔',
+                class: 'inline-block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200'
+            }
+        ]
+    }));
 
     container.innerHTML = `
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -308,3 +414,21 @@ if (document.readyState === 'loading') {
 } else {
     initComponents();
 }
+
+// Add copy functionality for layout import strings
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('copy-layout-btn')) {
+        const importString = e.target.getAttribute('data-import-string');
+        navigator.clipboard.writeText(importString).then(() => {
+            const originalText = e.target.textContent;
+            e.target.textContent = 'Copied!';
+            e.target.style.backgroundColor = '#22c55e';
+            setTimeout(() => {
+                e.target.textContent = originalText;
+                e.target.style.backgroundColor = '';
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+});
