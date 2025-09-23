@@ -115,7 +115,7 @@ function createLayoutCard(card) {
             <p class="text-slate-600 dark:text-slate-300 mb-4">${card.description}</p>
             <button class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 copy-layout-btn" data-import-string="${card.import_string.replace(/"/g, '&quot;')}">${card.copyButtonText}</button>
             <div class="mt-4">
-                <img src="assets/images/${card.title.toLowerCase().replace(/\s+/g, '-')}-screenshot.jpg" alt="Screenshot of ${card.title.toLowerCase()}" class="w-full rounded-lg border border-slate-200 dark:border-slate-700">
+                <img src="assets/images/${card.id}-screenshot.jpg" alt="Screenshot of ${card.title.toLowerCase()}" class="w-full rounded-lg border border-slate-200 dark:border-slate-700">
             </div>
         </div>
     `;
