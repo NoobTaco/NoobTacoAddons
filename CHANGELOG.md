@@ -24,6 +24,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved data maintainability by separating content types into logical file groupings
 - Enhanced scalability for future addon and configuration additions
 
+## [1.2.1] - 2025-09-23
+
+### Added
+- Source-specific inline download buttons (CurseForge, Wago, GitHub) with small site icons and tooltips
+
+### Changed
+- Inlined CurseForge SVG and switched it to use currentColor so the icon flips between dark/light automatically
+- Wago button now uses a local `wago-icon.png` and preserves its original aspect ratio
+- GitHub button receives a subtle dark-mode border so it stands out against dark card backgrounds
+- NoobTacoUI and NoobTacoUI Media cards now show all links provided in `data/addons.json` (GitHub, CurseForge, Wago)
+
+### Removed
+- Cleaned up unused asset files (Zone.Identifier streams and legacy favicon)
+
 ## [1.1.0] - 2025-09-22
 
 ### Added

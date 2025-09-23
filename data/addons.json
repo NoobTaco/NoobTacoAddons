@@ -22,7 +22,8 @@
       "wago": "https://addons.wago.io/addons/bigwigs"
     },
     "last_updated": "2025-09-23",
-    "id": "bigwigs"
+    "id": "bigwigs",
+    "icon": "assets/images/bigwigs-icon.jpeg"
   },
   {
     "name": "WeakAuras",
@@ -35,7 +36,8 @@
       "wago": "https://addons.wago.io/addons/weakauras"
     },
     "last_updated": "2025-09-23",
-    "id": "weakauras"
+    "id": "weakauras",
+    "icon": "assets/images/weakauras-icon.png"
   },
   {
     "name": "GTFO",
@@ -47,7 +49,8 @@
       "wago": "https://addons.wago.io/addons/gtfo"
     },
     "last_updated": "2025-09-23",
-    "id": "gtfo"
+    "id": "gtfo",
+    "icon": "assets/images/gtfo-icon.jpg"
   },
   {
     "name": "Plater Nameplates",
@@ -60,7 +63,8 @@
       "wago": "https://addons.wago.io/addons/plater-nameplates"
     },
     "last_updated": "2025-09-23",
-    "id": "plater-nameplates"
+    "id": "plater-nameplates",
+    "icon": "assets/images/plater-icon.png"
   },
   {
     "name": "LittleWigs",
@@ -73,7 +77,8 @@
       "wago": "https://addons.wago.io/addons/littlewigs"
     },
     "last_updated": "2025-09-23",
-    "id": "littlewigs"
+    "id": "littlewigs",
+    "icon": "assets/images/littlewigs-icon.png"
   },
   {
     "name": "Boss Ability Announcement (BAA) for DBM or BigWigs",
@@ -84,7 +89,8 @@
       "curseforge": "https://www.curseforge.com/wow/addons/dbm-event-announcement"
     },
     "last_updated": "2025-09-23",
-    "id": "dbm-event-announcement"
+    "id": "dbm-event-announcement",
+    "icon": "assets/images/dbm-event-icon.png"
   },
   {
     "name": "CauseseDB",
@@ -96,7 +102,8 @@
       "wago": "https://addons.wago.io/addons/causesedb"
     },
     "last_updated": "2025-09-23",
-    "id": "causesedb"
+    "id": "causesedb",
+    "icon": "assets/images/causesedb-icon.png"
   },
   {
     "name": "ElvUI",
@@ -120,7 +127,8 @@
       "wago": "https://addons.wago.io/addons/noobtacoui"
     },
     "last_updated": "2025-09-23",
-    "id": "noobtacoui"
+    "id": "noobtacoui",
+    "icon": "assets/images/Avatar_100.png"
   },
   {
     "name": "NoobTacoUI Media",
@@ -133,6 +141,7 @@
       "wago": "https://addons.wago.io/addons/noobtacoui-media"
     },
     "last_updated": "2025-09-23",
-    "id": "noobtacoui-media"
+    "id": "noobtacoui-media",
+    "icon": "assets/images/Avatar_100.png"
   }
 ]
