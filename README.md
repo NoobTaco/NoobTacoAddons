@@ -12,6 +12,8 @@ A curated collection of essential World of Warcraft addons to enhance your gamep
 - **Interactive UI**: Modern, responsive design with dark/light theme toggle
 - **Category-Based Organization**: Organized by content type (PvE, UI/QoL, etc.)
 - **Detailed Guides**: In-depth information about each addon and its benefits
+- **JSON Data Structure**: Modular data organization with separate files for addons, WeakAuras, and UI layouts
+- **Comprehensive Links**: CurseForge, GitHub, and Wago links for all addons
 - **Social Integration**: Links to Twitch, YouTube, and other platforms
 - **Mobile-Friendly**: Responsive design that works on all devices
 
@@ -35,8 +37,19 @@ Essential addons for raids, mythic dungeons, and delves:
 - **Frontend Framework**: Vite
 - **Styling**: Tailwind CSS
 - **JavaScript**: Vanilla JavaScript (ES6+)
+- **Data Structure**: JSON files for modular content organization
 - **Deployment**: GitHub Pages
 - **Fonts**: Inter (Google Fonts)
+
+## 📊 Data Structure
+
+The addon data is organized in modular JSON files for easy maintenance:
+
+- **`data/addons.json`**: Core addon database with download links and metadata
+- **`data/weakauras.json`**: WeakAuras import strings and pack configurations  
+- **`data/ui-layouts.json`**: WoW Edit Mode layout import strings
+
+Each JSON file follows a consistent structure with fields for name, description, category, links, and metadata.
 
 ## 🚀 Getting Started
 

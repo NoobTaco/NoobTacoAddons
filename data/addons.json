@@ -1,0 +1,172 @@
+[
+  {
+    "name": "Details! Damage Meter",
+    "description": "A comprehensive damage and healing meter for World of Warcraft.",
+    "category": ["Combat", "UI"],
+    "links": {
+      "github": "https://github.com/Tercioo/Details-Damage-Meter",
+      "curseforge": "https://www.curseforge.com/wow/addons/details",
+      "wago": "https://addons.wago.io/addons/details-damage-meter-standalone"
+    },
+    "last_updated": "2025-09-23",
+    "id": "details-damage-meter"
+  },
+  {
+    "name": "BigWigs",
+    "description": "A boss encounter add-on for raid and dungeon content.",
+    "category": ["Combat", "Boss Mods"],
+    "tags": ["pve-encounter-helpers"],
+    "links": {
+      "github": "https://github.com/BigWigsMods/BigWigs",
+      "curseforge": "https://www.curseforge.com/wow/addons/big-wigs",
+      "wago": "https://addons.wago.io/addons/bigwigs"
+    },
+    "last_updated": "2025-09-23",
+    "id": "bigwigs",
+    "icon": "assets/images/bigwigs-icon.jpeg"
+  },
+  {
+    "name": "WeakAuras",
+    "description": "A powerful and flexible framework for displaying customizable graphics on your screen.",
+    "category": ["UI", "Interface"],
+    "tags": ["pve-weakauras"],
+    "links": {
+      "github": "https://github.com/WeakAuras/WeakAuras2",
+      "curseforge": "https://www.curseforge.com/wow/addons/weakauras-2",
+      "wago": "https://addons.wago.io/addons/weakauras"
+    },
+    "last_updated": "2025-09-23",
+    "id": "weakauras",
+    "icon": "assets/images/weakauras-icon.png"
+  },
+  {
+    "name": "GTFO",
+    "description": "Provides immediate sound alerts when standing in harmful areas to help avoid damage and stay alive.",
+    "category": ["Combat", "Survival"],
+    "tags": ["pve-essentials"],
+    "links": {
+      "curseforge": "https://www.curseforge.com/wow/addons/gtfo",
+      "wago": "https://addons.wago.io/addons/gtfo"
+    },
+    "last_updated": "2025-09-23",
+    "id": "gtfo",
+    "icon": "assets/images/gtfo-icon.jpg"
+  },
+  {
+    "name": "Plater Nameplates",
+    "description": "A powerful and customizable addon that overhauls default nameplates to show crucial information about enemies.",
+    "category": ["UI", "Combat"],
+    "tags": ["pve-essentials"],
+    "links": {
+      "github": "https://github.com/Tercioo/Plater-Nameplates",
+      "curseforge": "https://www.curseforge.com/wow/addons/plater-nameplates",
+      "wago": "https://addons.wago.io/addons/plater-nameplates"
+    },
+    "last_updated": "2025-09-23",
+    "id": "plater-nameplates",
+    "icon": "assets/images/plater-icon.png"
+  },
+  {
+    "name": "LittleWigs",
+    "description": "Companion addon to BigWigs that provides boss encounter timers and warnings for dungeons and delves.",
+    "category": ["Combat", "Boss Mods"],
+    "tags": ["pve-encounter-helpers"],
+    "links": {
+      "github": "https://github.com/BigWigsMods/LittleWigs",
+      "curseforge": "https://www.curseforge.com/wow/addons/little-wigs",
+      "wago": "https://addons.wago.io/addons/littlewigs"
+    },
+    "last_updated": "2025-09-23",
+    "id": "littlewigs",
+    "icon": "assets/images/littlewigs-icon.png"
+  },
+  {
+    "name": "Boss Ability Announcement (BAA) for DBM or BigWigs",
+    "description": "Announces in chat when important abilities or mechanics are targeting you, compatible with BigWigs setups.",
+    "category": ["Combat", "Communication"],
+    "tags": ["pve-encounter-helpers"],
+    "links": {
+      "curseforge": "https://www.curseforge.com/wow/addons/dbm-event-announcement"
+    },
+    "last_updated": "2025-09-23",
+    "id": "dbm-event-announcement",
+    "icon": "assets/images/dbm-event-icon.png"
+  },
+  {
+    "name": "CauseseDB",
+    "description": "A required companion addon for WeakAuras that provides updated spell IDs, timers, and positioning data.",
+    "category": ["UI", "WeakAuras"],
+    "tags": ["pve-weakauras"],
+    "links": {
+      "curseforge": "https://www.curseforge.com/wow/addons/causesedb",
+      "wago": "https://addons.wago.io/addons/causesedb"
+    },
+    "last_updated": "2025-09-23",
+    "id": "causesedb",
+    "icon": "assets/images/causesedb-icon.png"
+  },
+  {
+    "name": "ElvUI",
+    "description": "A comprehensive user interface replacement addon that completely overhauls the default World of Warcraft interface.",
+    "category": ["UI", "Interface"],
+    "tags": ["noobtacoui"],
+    "links": {
+      "curseforge": "https://www.curseforge.com/wow/addons/elvui"
+    },
+    "last_updated": "2025-09-23",
+    "id": "elvui"
+  },
+  {
+    "name": "NoobTacoUI",
+    "description": "A comprehensive ElvUI profile that provides a clean, modern interface with optimized layouts for raiding, dungeons, and general gameplay.",
+    "category": ["UI", "Interface"],
+    "tags": ["noobtacoui"],
+    "links": {
+      "github": "https://github.com/NoobTaco/NoobTacoUI",
+      "curseforge": "https://www.curseforge.com/wow/addons/noobtacoui",
+      "wago": "https://addons.wago.io/addons/noobtacoui"
+    },
+    "last_updated": "2025-09-23",
+    "id": "noobtacoui",
+    "icon": "assets/images/Avatar_100.png"
+  },
+  {
+    "name": "NoobTacoUI Media",
+    "description": "A comprehensive media pack that includes custom fonts for better readability, unique audio cues for important alerts, and high-quality background graphics.",
+    "category": ["UI", "Media"],
+    "tags": ["noobtacoui"],
+    "links": {
+      "github": "https://github.com/NoobTaco/NoobTacoUI-Media",
+      "curseforge": "https://www.curseforge.com/wow/addons/noobtacoui-media",
+      "wago": "https://addons.wago.io/addons/noobtacoui-media"
+    },
+    "last_updated": "2025-09-23",
+    "id": "noobtacoui-media",
+    "icon": "assets/images/Avatar_100.png"
+  }
+  ,
+  {
+    "name": "Neural2 BigWigs Voice Pack",
+    "description": "A neural-generated voice pack that provides spoken alerts for BigWigs to audibly announce important encounter mechanics.",
+    "category": ["Audio", "Boss Mods"],
+    "tags": ["pve-encounter-helpers"],
+    "links": {
+      "curseforge": "https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-voice"
+    },
+    "last_updated": "2025-09-23",
+    "id": "wowvoxpacks-neural2-c-bigwigs-voice",
+  "icon": "assets/images/neural2-voice-pack.png"
+  },
+  {
+    "name": "Neural2 BigWigs Countdown Voice Pack",
+    "description": "A neural-generated countdown voice pack for BigWigs that gives audible countdowns for critical mechanics.",
+    "category": ["Audio", "Boss Mods"],
+    "tags": ["pve-encounter-helpers"],
+    "links": {
+      "curseforge": "https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-countdown"
+    },
+    "last_updated": "2025-09-23",
+    "id": "wowvoxpacks-neural2-c-bigwigs-countdown",
+  "icon": "assets/images/neural2-voice-pack.png"
+  }
+]

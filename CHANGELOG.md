@@ -5,6 +5,71 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-09-23
+
+### Added
+- **JSON Data Structure**: Complete refactor to use modular JSON files for content organization
+- **`data/addons.json`**: Comprehensive addon database with 11 core addons including CurseForge, GitHub, and Wago links
+- **`data/weakauras.json`**: Dedicated file for WeakAuras import strings and pack configurations
+- **`data/ui-layouts.json`**: WoW Edit Mode layout import strings for Standard and Heal modes
+- **Enhanced Link Coverage**: Added GitHub and Wago links to existing addons (Plater, LittleWigs, GTFO, CauseseDB, NoobTacoUI packages)
+
+### Changed
+- **Data Organization**: Moved from hardcoded JavaScript arrays to external JSON files for better maintainability
+- **Modular Architecture**: Separated addons, WeakAuras configurations, and UI layouts into distinct data files
+- **README Updates**: Added documentation for the new JSON data structure and tech stack improvements
+
+### Technical
+- Created consistent JSON schema across all data files with standardized fields (name, description, category, links, etc.)
+- Improved data maintainability by separating content types into logical file groupings
+- Enhanced scalability for future addon and configuration additions
+
+## [1.2.1] - 2025-09-23
+
+### Added
+- Source-specific inline download buttons (CurseForge, Wago, GitHub) with small site icons and tooltips
+
+### Changed
+- Inlined CurseForge SVG and switched it to use currentColor so the icon flips between dark/light automatically
+- Wago button now uses a local `wago-icon.png` and preserves its original aspect ratio
+- GitHub button receives a subtle dark-mode border so it stands out against dark card backgrounds
+- NoobTacoUI and NoobTacoUI Media cards now show all links provided in `data/addons.json` (GitHub, CurseForge, Wago)
+
+### Removed
+- Cleaned up unused asset files (Zone.Identifier streams and legacy favicon)
+
+### Other
+- Added a local copy of the CurseForge favicon to `public/assets/images/` for use with source buttons
+
+## [1.2.2] - 2025-09-23
+
+### Added
+- Neural2 BigWigs Voice Pack entries to `data/addons.json` (voice and countdown packs)
+- Local icon for Neural2 voice packs at `public/assets/images/neural2-voice-pack.png`
+
+### Changed
+- Audio Cues section: voice packs are now rendered as individual cards (each shows its own name and icon) instead of a single BigWigs parent card
+- `src/footer-loader.js` updated to read voice pack entries from `data/addons.json` when available and fall back to hardcoded links otherwise
+- Build step now copies `data/` into `dist/` so runtime fetches for JSON succeed
+
+### Fixed
+- Copy Import String button event handling: use event delegation + clipboard fallback and ensure icon/text clicks trigger copy and UI feedback
+
+### Technical
+- Updated package.json build script to ensure `dist/data` is included during build
+- Rebuilt `dist/` and inlined the footer to apply changes to the production bundle
+
+## [1.2.3] - 2025-09-23
+
+### Fixed
+- Neural2 BigWigs voice pack CurseForge buttons now use the standard CurseForge button styling so they match other CF buttons site-wide
+- GTFO 'Must-Have' priority badge updated to a brighter red variant to draw attention (Tailwind classes used for light/dark modes)
+- Removed the PvP placeholder from the main header navigation
+
+### Changed
+- Minor refactor: `src/footer-loader.js` now delegates CF button styling to `createSourceButton` and only applies custom button classes to non-CurseForge links
+
+
 ## [1.1.0] - 2025-09-22
 
 ### Added

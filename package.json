@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run inline-footer",
+  "build": "vite build && cp -r data dist/data && npm run inline-footer",
     "inline-footer": "node scripts/inline-footer.js",
     "preview": "vite preview",
     "predeploy": "npm run build",
