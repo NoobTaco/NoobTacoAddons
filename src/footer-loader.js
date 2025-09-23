@@ -119,7 +119,10 @@ function createLayoutCard(card) {
         <div class="addon-card p-6">
             <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-4">${card.title}</h3>
             <p class="text-slate-600 dark:text-slate-300 mb-4">${card.description}</p>
-            <button class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 copy-layout-btn" data-import-string="${card.import_string.replace(/"/g, '&quot;')}">${card.copyButtonText}</button>
+            <button class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 copy-layout-btn inline-flex items-center gap-2" data-import-string="${card.import_string.replace(/"/g, '&quot;')}" title="${card.copyButtonText}">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 5h6a2 2 0 012 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 9h10a2 2 0 012 2v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7a2 2 0 012-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>${card.copyButtonText}</span>
+            </button>
             <div class="mt-4">
                 <img src="assets/images/${card.id}-screenshot.jpg" alt="Screenshot of ${card.title.toLowerCase()}" class="w-full rounded-lg border border-slate-200 dark:border-slate-700">
             </div>
