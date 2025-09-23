@@ -15,6 +15,7 @@
     "name": "BigWigs",
     "description": "A boss encounter add-on for raid and dungeon content.",
     "category": ["Combat", "Boss Mods"],
+    "tags": ["pve-encounter-helpers"],
     "links": {
       "github": "https://github.com/BigWigsMods/BigWigs",
       "curseforge": "https://www.curseforge.com/wow/addons/bigwigs",
@@ -27,6 +28,7 @@
     "name": "WeakAuras",
     "description": "A powerful and flexible framework for displaying customizable graphics on your screen.",
     "category": ["UI", "Interface"],
+    "tags": ["pve-weakauras"],
     "links": {
       "github": "https://github.com/WeakAuras/WeakAuras2",
       "curseforge": "https://www.curseforge.com/wow/addons/weakauras-2",
@@ -39,6 +41,7 @@
     "name": "GTFO",
     "description": "Provides immediate sound alerts when standing in harmful areas to help avoid damage and stay alive.",
     "category": ["Combat", "Survival"],
+    "tags": ["pve-essentials"],
     "links": {
       "curseforge": "https://www.curseforge.com/wow/addons/gtfo",
       "wago": "https://addons.wago.io/addons/gtfo"
@@ -50,6 +53,7 @@
     "name": "Plater Nameplates",
     "description": "A powerful and customizable addon that overhauls default nameplates to show crucial information about enemies.",
     "category": ["UI", "Combat"],
+    "tags": ["pve-essentials"],
     "links": {
       "github": "https://github.com/Tercioo/Plater-Nameplates",
       "curseforge": "https://www.curseforge.com/wow/addons/plater-nameplates",
@@ -62,6 +66,7 @@
     "name": "LittleWigs",
     "description": "Companion addon to BigWigs that provides boss encounter timers and warnings for dungeons and delves.",
     "category": ["Combat", "Boss Mods"],
+    "tags": ["pve-encounter-helpers"],
     "links": {
       "github": "https://github.com/BigWigsMods/LittleWigs",
       "curseforge": "https://www.curseforge.com/wow/addons/little-wigs",
@@ -74,6 +79,7 @@
     "name": "Boss Ability Announcement (BAA) for DBM or BigWigs",
     "description": "Announces in chat when important abilities or mechanics are targeting you, compatible with BigWigs setups.",
     "category": ["Combat", "Communication"],
+    "tags": ["pve-encounter-helpers"],
     "links": {
       "curseforge": "https://www.curseforge.com/wow/addons/dbm-event-announcement"
     },
@@ -84,6 +90,7 @@
     "name": "CauseseDB",
     "description": "A required companion addon for WeakAuras that provides updated spell IDs, timers, and positioning data.",
     "category": ["UI", "WeakAuras"],
+    "tags": ["pve-weakauras"],
     "links": {
       "curseforge": "https://www.curseforge.com/wow/addons/causesedb",
       "wago": "https://addons.wago.io/addons/causesedb"
@@ -95,6 +102,7 @@
     "name": "ElvUI",
     "description": "A comprehensive user interface replacement addon that completely overhauls the default World of Warcraft interface.",
     "category": ["UI", "Interface"],
+    "tags": ["noobtacoui"],
     "links": {
       "curseforge": "https://www.curseforge.com/wow/addons/elvui"
     },
@@ -105,6 +113,7 @@
     "name": "NoobTacoUI",
     "description": "A comprehensive ElvUI profile that provides a clean, modern interface with optimized layouts for raiding, dungeons, and general gameplay.",
     "category": ["UI", "Interface"],
+    "tags": ["noobtacoui"],
     "links": {
       "github": "https://github.com/NoobTaco/NoobTacoUI",
       "curseforge": "https://www.curseforge.com/wow/addons/noobtacoui",
@@ -117,6 +126,7 @@
     "name": "NoobTacoUI Media",
     "description": "A comprehensive media pack that includes custom fonts for better readability, unique audio cues for important alerts, and high-quality background graphics.",
     "category": ["UI", "Media"],
+    "tags": ["noobtacoui"],
     "links": {
       "github": "https://github.com/NoobTaco/NoobTacoUI-Media",
       "curseforge": "https://www.curseforge.com/wow/addons/noobtacoui-media",

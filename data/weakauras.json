@@ -3,6 +3,7 @@
     "name": "Causese Anchors",
     "description": "This is a required framework that helps position and organize the other aura packs. Install this one first!",
     "category": ["WeakAuras", "Framework"],
+    "tags": ["pve-weakauras"],
     "links": {
       "wago": "https://wago.io/CauseseAnchors"
     },
@@ -13,6 +14,7 @@
     "name": "The War Within Raid Auras",
     "description": "A comprehensive pack of auras for all raid encounters in The War Within.",
     "category": ["WeakAuras", "Raid"],
+    "tags": ["pve-weakauras"],
     "links": {
       "wago": "https://wago.io/twwraid3"
     },
@@ -23,6 +25,7 @@
     "name": "The War Within Dungeon Auras",
     "description": "A collection of essential auras for Mythic+ and Delve dungeons in The War Within.",
     "category": ["WeakAuras", "Dungeon"],
+    "tags": ["pve-weakauras"],
     "links": {
       "wago": "https://wago.io/twwdungeons"
     },
