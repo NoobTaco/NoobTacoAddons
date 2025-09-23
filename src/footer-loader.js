@@ -304,12 +304,16 @@ async function initEssentialsCards(container) {
     const addons = await loadAddonsByTag('pve-essentials');
 
     // Convert JSON data to card format expected by createCard
-    const cards = addons.map(addon => ({
+        const cards = addons.map(addon => ({
         type: 'addon',
         title: addon.name,
         description: addon.description,
         priority: addon.name === 'GTFO' ? 'Must-Have' : 'Recommended',
-        priorityClass: addon.name === 'GTFO' ? '' : 'bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-200',
+        // Use a brighter red-style badge for Must-Have (GTFO) to draw attention,
+        // and keep recommended items in the calmer sky tone per Tailwind conventions.
+        priorityClass: addon.name === 'GTFO'
+            ? 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
+            : 'bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-200',
     addonIcon: addon.icon || (addon.id === 'gtfo' ? 'assets/images/gtfo-icon.jpg' : 'assets/images/plater-icon.png'),
         downloadLinks: Object.entries(addon.links || {}).filter(([,url]) => !!url).map(([key, url]) => ({
             site: key.toLowerCase(),
@@ -376,12 +380,17 @@ async function initEncounterHelpersCards(container) {
                 title: entry.name,
                 description: entry.description || 'Voice pack for BigWigs providing audible alerts and countdowns.',
                 addonIcon: entry.icon || 'assets/images/bigwigs-icon.jpeg',
-                downloadLinks: Object.entries(entry.links || {}).filter(([, url]) => !!url).map(([key, url]) => ({
-                    site: key.toLowerCase(),
-                    url: url,
-                    text: key === 'curseforge' ? 'View on CurseForge ➔' : `${key.charAt(0).toUpperCase() + key.slice(1)} ➔`,
-                    class: 'block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200'
-                }))
+                downloadLinks: Object.entries(entry.links || {}).filter(([, url]) => !!url).map(([key, url]) => {
+                    const site = key.toLowerCase();
+                    const text = site === 'curseforge' ? 'View on CurseForge ➔' : `${key.charAt(0).toUpperCase() + key.slice(1)} ➔`;
+                    const linkObj = { site, url, text };
+                    // Only apply the custom block-style button for non-CurseForge links so
+                    // CurseForge buttons use the standard orange styling defined in createSourceButton
+                    if (site !== 'curseforge') {
+                        linkObj.class = 'block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200';
+                    }
+                    return linkObj;
+                })
             });
         });
     } else {
@@ -392,8 +401,8 @@ async function initEncounterHelpersCards(container) {
             description: 'These optional addons add clear voice alerts to BigWigs, providing audible warnings for important mechanics. This allows you to focus on the action without having to read every on-screen alert.',
             addonIcon: 'assets/images/bigwigs-icon.jpeg',
             downloadLinks: [
-                { site: 'curseforge', url: 'https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-voice', text: 'Neural Voice Pack ➔', class: 'block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200' },
-                { site: 'curseforge', url: 'https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-countdown', text: 'Countdown Voice Pack ➔', class: 'block text-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200' }
+                { site: 'curseforge', url: 'https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-voice', text: 'Neural Voice Pack ➔' },
+                { site: 'curseforge', url: 'https://www.curseforge.com/wow/addons/wowvoxpacks-neural2-c-bigwigs-countdown', text: 'Countdown Voice Pack ➔' }
             ]
         });
     }

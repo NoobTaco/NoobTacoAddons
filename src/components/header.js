@@ -53,9 +53,6 @@ export function createNavHeader({ currentPage = 'home' } = {}) {
                         NoobTacoUI
                     </a>
                     <span class="text-slate-400 dark:text-slate-500 font-medium cursor-not-allowed">
-                        PvP (Soon)
-                    </span>
-                    <span class="text-slate-400 dark:text-slate-500 font-medium cursor-not-allowed">
                         UI & QoL (Soon)
                     </span>
                 </nav>

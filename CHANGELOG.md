@@ -59,6 +59,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated package.json build script to ensure `dist/data` is included during build
 - Rebuilt `dist/` and inlined the footer to apply changes to the production bundle
 
+## [1.2.3] - 2025-09-23
+
+### Fixed
+- Neural2 BigWigs voice pack CurseForge buttons now use the standard CurseForge button styling so they match other CF buttons site-wide
+- GTFO 'Must-Have' priority badge updated to a brighter red variant to draw attention (Tailwind classes used for light/dark modes)
+- Removed the PvP placeholder from the main header navigation
+
+### Changed
+- Minor refactor: `src/footer-loader.js` now delegates CF button styling to `createSourceButton` and only applies custom button classes to non-CurseForge links
+
+
 ## [1.1.0] - 2025-09-22
 
 ### Added

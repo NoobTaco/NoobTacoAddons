@@ -41,7 +41,7 @@ export function createFooter({ layout = 'full', currentPage = 'home' } = {}) {
                     </a>
                 </div>
                 <div class="mt-8 pt-8 border-t border-slate-700 text-slate-500 text-sm">
-                    <p>&copy; 2025 NoobTaco. This site is not affiliated with Blizzard Entertainment. | Version 1.0.0</p>
+                    <p>&copy; 2025 NoobTaco. This site is not affiliated with Blizzard Entertainment. | Version 1.2.3</p>
                 </div>
             </div>
         </footer>
