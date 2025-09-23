@@ -38,6 +38,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Cleaned up unused asset files (Zone.Identifier streams and legacy favicon)
 
+### Other
+- Added a local copy of the CurseForge favicon to `public/assets/images/` for use with source buttons
+
 ## [1.1.0] - 2025-09-22
 
 ### Added
